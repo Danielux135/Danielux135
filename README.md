@@ -24,7 +24,7 @@ Actualmente cursando el certificado de profesionalidad **IFCD0210 – Desarrollo
 
 | Área | Nivel |
 |------|-------|
-| IA aplicada · Música con IA | ██████████ Experto |
+| IA aplicada | ██████████ Experto |
 | Streaming y contenido digital | ██████████ Experto |
 | Linux y administración | █████████░ Avanzado |
 | Servidores de videojuegos | █████████░ Avanzado |
