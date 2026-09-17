@@ -60,6 +60,20 @@ Coordinación integral de lanzamientos, organización de producciones y distribu
 
 ---
 
+---
+
+## Actividad
+
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Danielux135/Danielux135/output/juego-actual-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Danielux135/Danielux135/output/juego-actual.svg">
+  <img alt="Un juego arcade jugado sobre mi grafico de contribuciones" src="https://raw.githubusercontent.com/Danielux135/Danielux135/output/juego-actual.svg">
+</picture>
+
+</div>
+
 ## Contacto
 
 | | |
