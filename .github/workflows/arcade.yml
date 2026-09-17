@@ -1,0 +1,46 @@
+name: Grafico arcade del perfil
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  generar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+
+    steps:
+      - name: Elige juego al azar
+        id: sorteo
+        run: |
+          JUEGOS=(pacman breakout galaga puzzle-bobble bomberman minesweeper)
+          ELEGIDO=${JUEGOS[$RANDOM % ${#JUEGOS[@]}]}
+          echo "juego=$ELEGIDO" >> "$GITHUB_OUTPUT"
+          echo "Hoy toca: $ELEGIDO"
+
+      - name: Genera los SVG
+        uses: abozanona/pacman-contribution-graph@7332e1de7903ab780c3692a4127a59cc13872daa # v5.3.2
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          games: ${{ steps.sorteo.outputs.juego }}
+          hide_month_labels: "false"
+
+      - name: Copia a un nombre fijo
+        run: |
+          cd dist
+          cp "${{ steps.sorteo.outputs.juego }}-contribution-graph.svg" juego-actual.svg
+          cp "${{ steps.sorteo.outputs.juego }}-contribution-graph-dark.svg" juego-actual-dark.svg
+
+      - name: Publica en la rama output
+        uses: crazy-max/ghaction-github-pages@v3.1.0
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
